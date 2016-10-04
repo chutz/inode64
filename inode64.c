@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	struct stat sb;
 
 	if (argc < 1) {
-		printf("Usage: %s <path>\n", argv[0]);
+		printf("Usage: %s <path> [path] ...\n", argv[0]);
 	}
 
 	file_system = fts_open(&argv[1], FTS_PHYSICAL | FTS_NOSTAT | FTS_XDEV, NULL);
