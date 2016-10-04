@@ -17,7 +17,6 @@ int main(int argc, char **argv)
 	FTSENT *child = NULL;
 	FTSENT *parent = NULL;
 	char file_path[PATH_MAX];
-	char real_path[PATH_MAX];
 
 	struct stat sb;
 
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
 			child = fts_children(file_system, 0);
 
 			if ((child == NULL) && (errno != 0)) {
-				perror("fts_children");
+				perror(file_path);
 				continue;
 			}
 			while ((child != NULL) && (child->fts_link != NULL)) {
