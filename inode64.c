@@ -38,14 +38,13 @@ int main(int argc, char **argv)
 			while ((child != NULL) && (child->fts_link != NULL)) {
 				child = child->fts_link;
 				snprintf(file_path, PATH_MAX, "%s/%s", child->fts_path, child->fts_name);
-				if (realpath(file_path, real_path) == NULL) {
-					perror(file_path);
-					exit_code = 1;
-				} else if ((retval = lstat(real_path, &sb)) != 0) {
+
+				if ((retval = lstat(file_path, &sb)) != 0) {
 					perror(file_path);
 					exit_code = retval;
+
 				} else if (sb.st_ino > UINT_MAX) {
-					printf("%s\n", real_path);
+					printf("%s\n", file_path);
 				}
 			}
 		}
