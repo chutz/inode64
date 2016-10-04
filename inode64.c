@@ -30,7 +30,8 @@ int main(int argc, char **argv)
 	if (file_system != NULL) {
 		while((parent = fts_read(file_system)) != NULL) {
 			child = fts_children(file_system, 0);
-			if (errno != 0) {
+
+			if (child == NULL) {
 				perror("fts_children");
 				continue;
 			}
