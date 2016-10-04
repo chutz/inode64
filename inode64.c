@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 
 	if (argc < 1) {
 		printf("Usage: %s <path> [path] ...\n", argv[0]);
+		return 1;
 	}
 
 	file_system = fts_open(&argv[1], FTS_PHYSICAL | FTS_NOSTAT | FTS_XDEV, NULL);
