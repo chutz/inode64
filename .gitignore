@@ -1,0 +1,8 @@
+# misc editor artifacts/configs
+*~
+.*.sw[po]
+.*.un~
+*#
+.#*
+*.o
+/inodes
